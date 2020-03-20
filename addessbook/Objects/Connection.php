@@ -6,33 +6,26 @@ include 'IConnect.php';
 Class Connection implements IConnect {
 
 	//Variables
-	const HOST = "localhost";
-	const USER = "root";
-	const PWD = "";
-	const DBNAME = "addressbook";
+	private $host = "localhost";
+	private	$dbname = "addressbook";
+	private	$user = "root";
+	private	$pwd = "";
+
 
 	protected function __construct() {
-		self::HOST;
-		self::USER;
-		self::PWD;
-		self::DBNAME;
+		self::connect();
 	}
 
 	//Add your methods below
 	public function connect() {
-		$dsn = "mysql:host=".self::HOST.";dbname=".self::DBNAME.";charset=utf8mb4";
-		$options = [
-			PDO::ATTR_EMULATE_PREPARES   => false,
-			PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-			PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-		];
-		try {
-			$pdo = new PDO($dsn, self::USER, self::PWD, $options);
-			echo "Connected";
-		} catch (Exception $e) {
-			error_log($e->getMessage());
-			exit('Something weird happened');
-		}
+		$this->dsn = 'mysql:host='. $this->host . ';dbname='. $this->dbname;
+		$this->pdo = new PDO($this->dsn, $this->user, $this->pwd);
+		$this->pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+		$this->pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+	}
+
+	public function getConnection() {
+		return $this->pdo;
 	}
 }
 
