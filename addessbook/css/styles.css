@@ -3,10 +3,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
+  height: 100vh;
 }
 
 .main {
@@ -40,23 +37,7 @@ a {
   grid-auto-flow: column;
 }
 
-.form-div {
-  margin: 100px auto 50px;
-  padding: 25px 15px 10px 15px;
-  font-size: 1.1em;
-  border: 1px solid #80ced7;
-  border-radius: 5px;
-}
-form p {
-  font-size: 0.89em;
-}
-
-input .capital {
-  text-transform: capitalize;
-}
-
-/* my css */
 .table td,
 .table th {
-  vertical-align: auto;
+  vertical-align: middle;
 }
