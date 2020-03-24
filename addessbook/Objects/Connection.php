@@ -20,8 +20,10 @@ Class Connection implements IConnect {
 	//Add your methods below
 	public function connect() {
 		try {
-            $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->dbname, $this->user, $this->pass);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+			$this->dsn = 'mysql:host='. $this->host . ';dbname='.$this->dbname;
+            $this->conn = new PDO($this->dsn, $this->user, $this->pwd);
+			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         }
         catch(PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();

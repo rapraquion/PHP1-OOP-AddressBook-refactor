@@ -18,12 +18,9 @@ Class Query extends Connection {
 	  //your select code here
 	  $sql = "SELECT * FROM address";
 	  $stmt = parent::getConnection()->prepare($sql);
-		if($stmt) {
-			$stmt->execute();
+	  $result = $stmt->execute();
+		if($result) {
 			return $stmt->fetchAll();
-		} else {
-			$_SESSION['msg'] = "Unable to fetch contact from database!";
-		  	$_SESSION['msg_type'] = "danger";
 		}
 	}
 
@@ -32,14 +29,13 @@ Class Query extends Connection {
 	  //your insert code here
 	  $sql = "INSERT INTO address (name, phone, email) VALUES (?,?,?)";
 	  $stmt = parent::getConnection()->prepare($sql);
-	  if($stmt) {
-	 	$stmt->execute([$get[0], $get[1], $get[2]]);
-		$_SESSION['msg'] = "New contact added!";
-		$_SESSION['msg_type'] = "success";
+	  $result = $stmt->execute([$get[0], $get[1], $get[2]]);
+	  if($result) {
+		json_encode(array("statusCode"=>200));	
 	  } else {
-		  $_SESSION['msg'] = "Unable to add contact!";
-		  $_SESSION['msg_type'] = "danger";
+		json_encode(array("statusCode"=>201));
 	  }
+	  header('location: index.php');
 	}
 
 	public function update($id,$get)
@@ -47,14 +43,13 @@ Class Query extends Connection {
 	 //your update code here
 	 $sql = "UPDATE address SET name=?,phone=?,email=? WHERE id=?";
 	 $stmt = parent::getConnection()->prepare($sql);
-		if($stmt) {
-			 $stmt->execute([$get[0], $get[1], $get[2], $id]);
-			 $_SESSION['msg'] = "Contact updated!";
-			 $_SESSION['msg_type'] = "info";
-		} else {
-			 $_SESSION['msg'] = "Error updating contact!";
-			 $_SESSION['msg_type'] = "danger";
-		}
+	 $result = $stmt->execute([$get[0], $get[1], $get[2], $id]);
+	 if($result) {
+		json_encode(array("statusCode"=>200));	
+	  } else {
+		json_encode(array("statusCode"=>201));
+	  }
+	  header('location: index.php');
 	}
 
 	public function delete($id)
@@ -62,14 +57,13 @@ Class Query extends Connection {
 	 //your delete code
 	 $sql = "DELETE FROM address WHERE id=?";
 	 $stmt = parent::getConnection()->prepare($sql);
-		if($stmt) {
-			$stmt->execute([$id]);
-			$_SESSION['msg'] = "Contact deleted!";
-			$_SESSION['msg_type'] = "dark";
-		} else {
-			$_SESSION['msg'] = "Error deleting contact!";
-			$_SESSION['msg_type'] = "danger";
-		}
+	 $result = $stmt->execute([$id]);
+	 if($result) {
+		json_encode(array("statusCode"=>200));	
+	  } else {
+		json_encode(array("statusCode"=>201));
+	  }
+	  header('location: index.php');
 	}
 } 
 

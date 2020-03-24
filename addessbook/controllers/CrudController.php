@@ -1,17 +1,20 @@
 <?php
-
+include '../Objects/Query.php';
 $query = new Query();
+
+$errors = array();
+$name = "";
+$phone = "";
+$email = "";
 
 // add new contact
 if(isset($_POST['newContact'])) {
-	$name = $_POST['name'];
-	$contact = $_POST['contact'];
-	$email = $_POST['email'];
-
-	if(!empty($name) && !empty($contact) && !empty($email)) {
-		$get = array($name, $contact, $email);
-		$query->insert($get);
-	}
+    print_r($_POST['newContact']);
+	// $name = $_POST['name'];
+	// $contact = $_POST['contact'];
+	// $email = $_POST['email'];
+    // $get = array($name, $contact, $email);
+	// $query->insert($get);
 }
 
 // edit contact
@@ -28,6 +31,5 @@ if(isset($_POST['editContact'])) {
 // delete contact
 if(isset($_POST['deleteContact'])) {
 	$id = $_POST['id'];
-	
 	$query->delete($id);
 }

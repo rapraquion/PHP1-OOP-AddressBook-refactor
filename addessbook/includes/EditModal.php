@@ -15,13 +15,13 @@
                     <div class="modal-body">
                             <input value="<?php echo $contacts['id'] ?>" name="id" type="hidden">  
                         <div class="form-group">
-                            <input autofocus required class="form-control form-control-lg capital" value="<?php echo $contacts['name'] ?>" placeholder="Name" name="name" type="text">  
+                            <input autofocus class="form-control form-control-lg capital" value="<?php echo $contacts['name'] ?>" placeholder="Name" name="name" type="text">  
                         </div>
                         <div class="form-group">                               
-                            <input required class="form-control form-control-lg capital" value="<?php echo $contacts['phone'] ?>" placeholder="Contact" name="contact" type="tel" pattern="[0-9\-]+">    
+                            <input class="form-control form-control-lg capital" value="<?php echo $contacts['phone'] ?>" placeholder="Contact" name="contact" type="tel" pattern="[0-9\-]+">    
                         </div>
                         <div class="form-group">                                    
-                            <input required class="form-control form-control-lg capital" value="<?php echo $contacts['email'] ?>" placeholder="Email" name="email" type="email">  
+                            <input class="form-control form-control-lg capital" value="<?php echo $contacts['email'] ?>" placeholder="Email" name="email" type="email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,})+$/">  
                         </div>
                     </div>
                     <!-- Modal Footer -->

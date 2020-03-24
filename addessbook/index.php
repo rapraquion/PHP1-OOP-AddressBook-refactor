@@ -2,7 +2,7 @@
 
 <?php 
 //Inlude the Query class here ..
-include_once './Objects/Query.php';
+include './Objects/Query.php';
 $self = $_SERVER['PHP_SELF'];
 
 //Default methods
@@ -31,7 +31,7 @@ include './controllers/CrudController.php';
 	<?php include './includes/Notification.php'; ?>
 
     <div class="main">
-		<!-- add contact (create) -->
+		<!-- add contact (create) (update) (delete) -->
 		<div class="container-md add-btn">
 			<button autoFocus class="btn btn-success" data-toggle="modal" data-target="#addForm">
 				Add Contact
@@ -43,8 +43,10 @@ include './controllers/CrudController.php';
 		<?php include './includes/Table.php'; ?>
     </div>  
 	<!-- jQuery, Popper.js, Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	<script src="includes/myFunc.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -12,21 +12,21 @@
                 </div>
                 <!-- Modal Body -->
                 <div class="modal-body">
-                    <form class="create-main" method="post">
+                    <form class="create-main needs-validation" method="post" novalidate>
                         <div class="form-group">
-                            <input autofocus required class="form-control form-control-lg capital" placeholder="Full Name" name="name" type="text">  
+                            <input class="form-control form-control-lg capital" value="<?php echo $name; ?>" placeholder="Full Name" id="name" name="name" type="text">  
                         </div>
                         <div class="form-group">                               
-                            <input required class="form-control form-control-lg capital" placeholder="Phone Number" name="contact" type="tel" pattern="[0-9\-]+">  
+                            <input class="form-control form-control-lg capital" value="<?php echo $contact; ?>" placeholder="Phone Number" id="contact" name="contact" type="tel" pattern="[0-9\-]+">  
                         </div>
                         <div class="form-group">                                    
-                            <input required class="form-control form-control-lg capital" placeholder="Email" name="email" type="email">  
+                            <input class="form-control form-control-lg capital" value="<?php echo $email; ?>" placeholder="Email" id="email" name="email" type="email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,})+$/">  
                         </div>
                     </div>
                     <!-- Modal Footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="submit" name="newContact" class="btn btn-default">Save</button>
+                        <button type="submit" id="newContact" name="newContact" class="btn btn-default">Save</button>
                     </form>
                 </div>    
             </div>
