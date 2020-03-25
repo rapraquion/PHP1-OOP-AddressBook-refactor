@@ -31,11 +31,12 @@ Class Query extends Connection {
 	  $stmt = parent::getConnection()->prepare($sql);
 	  $result = $stmt->execute([$get[0], $get[1], $get[2]]);
 	  if($result) {
-		json_encode(array("statusCode"=>200));	
+		$_SESSION['msg'] = "New contact saved!";
+		$_SESSION['msg_type'] = "success";
 	  } else {
-		json_encode(array("statusCode"=>201));
+		$_SESSION['msg'] = "Error adding contact to database!";
+		$_SESSION['msg_type'] = "danger";
 	  }
-	  header('location: index.php');
 	}
 
 	public function update($id,$get)
@@ -45,11 +46,12 @@ Class Query extends Connection {
 	 $stmt = parent::getConnection()->prepare($sql);
 	 $result = $stmt->execute([$get[0], $get[1], $get[2], $id]);
 	 if($result) {
-		json_encode(array("statusCode"=>200));	
+		$_SESSION['msg'] = "Contact updated!";
+		$_SESSION['msg_type'] = "info";
 	  } else {
-		json_encode(array("statusCode"=>201));
+		$_SESSION['msg'] = "Updating contact failed!";
+		$_SESSION['msg_type'] = "danger";
 	  }
-	  header('location: index.php');
 	}
 
 	public function delete($id)
@@ -59,11 +61,12 @@ Class Query extends Connection {
 	 $stmt = parent::getConnection()->prepare($sql);
 	 $result = $stmt->execute([$id]);
 	 if($result) {
-		json_encode(array("statusCode"=>200));	
+		$_SESSION['msg'] = "Successfuly deleted!";
+		$_SESSION['msg_type'] = "warning";
 	  } else {
-		json_encode(array("statusCode"=>201));
+		$_SESSION['msg'] = "Deleting contact did not succeed!";
+		$_SESSION['msg_type'] = "danger";
 	  }
-	  header('location: index.php');
 	}
 } 
 

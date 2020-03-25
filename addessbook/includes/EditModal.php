@@ -21,7 +21,7 @@
                             <input class="form-control form-control-lg capital" value="<?php echo $contacts['phone'] ?>" placeholder="Contact" name="contact" type="tel" pattern="[0-9\-]+">    
                         </div>
                         <div class="form-group">                                    
-                            <input class="form-control form-control-lg capital" value="<?php echo $contacts['email'] ?>" placeholder="Email" name="email" type="email" pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{1,})+$/">  
+                            <input class="form-control form-control-lg capital" value="<?php echo $contacts['email'] ?>" placeholder="Email" name="email" type="email">  
                         </div>
                     </div>
                     <!-- Modal Footer -->

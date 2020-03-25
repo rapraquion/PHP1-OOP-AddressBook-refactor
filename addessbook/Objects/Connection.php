@@ -7,7 +7,7 @@ Class Connection implements IConnect {
 
 	//Variables
 	private $host = "localhost";
-	private	$dbname = "addressbook";
+	private	$dbname = "addressbook_db";
 	private	$user = "root";
 	private	$pwd = "";
 
