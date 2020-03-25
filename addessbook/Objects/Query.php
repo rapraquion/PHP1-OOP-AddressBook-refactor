@@ -5,6 +5,7 @@ include 'Connection.php';
 
 $msg = "";
 $msg_type = "";
+$errors = array();
 
 Class Query extends Connection {
 
